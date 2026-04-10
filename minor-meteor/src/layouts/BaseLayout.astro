@@ -31,7 +31,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Stanislav Tolmachov" />
-    <meta name="keywords" content="Go, Golang, Backend Engineer, gRPC, PostgreSQL, Docker, Clean Architecture, Technical Leader" />
+    <meta name="keywords" content="Stanislav Tolmachov, Go Engineer, Golang Backend Developer, gRPC, PostgreSQL, Redis, Docker, Clean Architecture, Microservices, Norway, Remote Backend Engineer, Technical Leader" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- OpenGraph -->
@@ -61,6 +62,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Theme color -->
     <meta name="theme-color" content="#0a0f1a" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Stanislav Tolmachov",
+      "jobTitle": "Backend Go Engineer",
+      "url": "https://tolmachov.dev",
+      "email": "stan@tolmachov.dev",
+      "telephone": "+4792043450",
+      "image": "https://tolmachov.dev/opengraph-image.png",
+      "description": "Backend Go Engineer & Technical Leader. Building robust, scalable Go systems backed by a decade of zero-fault tolerance leadership in the global film industry.",
+      "sameAs": [
+        "https://github.com/StanTolmachov",
+        "https://www.linkedin.com/in/stan-tolmachov/",
+        "https://t.me/StasTolmachov"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NO"
+      },
+      "knowsAbout": ["Go", "Golang", "gRPC", "PostgreSQL", "Redis", "Docker", "Clean Architecture", "Microservices", "Backend Development"],
+      "knowsLanguage": ["en", "uk", "ru"]
+    }
+    </script>
   </head>
   <body>
     <AnimatedBackground />
