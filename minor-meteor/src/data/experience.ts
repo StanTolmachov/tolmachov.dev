@@ -13,7 +13,7 @@ export const experience: ExperienceItem[] = [
     period: "2023 – present",
     role: "Backend Go Engineer",
     company: "Freelance / Open to hire",
-    location: "Nordreisa, Norway",
+    location: "Norway",
     highlights: [
       "Building production-grade Go services: REST APIs, gRPC microservices, AI integrations",
       "Architecting systems with Clean Architecture, PostgreSQL, Redis, Docker",
