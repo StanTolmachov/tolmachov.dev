@@ -1,0 +1,217 @@
+---
+import BentoCard from '../ui/BentoCard.astro';
+---
+<section id="about" class="py-24 px-6 md:px-12 max-w-5xl mx-auto">
+  <!-- Section header -->
+  <div class="mb-12">
+    <p class="font-mono text-[var(--color-accent)] text-sm mb-2">01. about</p>
+    <h2 class="section-title">The Engineer Behind the Code</h2>
+    <p class="section-subtitle max-w-xl">From managing Oscar-nominated film pipelines to building Go microservices.</p>
+  </div>
+  <!-- Bento Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Story tile — wide -->
+    <BentoCard class="lg:col-span-2" accent>
+      <div class="flex items-center gap-2 mb-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="text-xs font-mono text-[var(--color-accent)]">story</span>
+      </div>
+      <h3 class="font-bold text-[var(--color-text)] text-lg">From Film Labs to Go Services</h3>
+      <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+        For over a decade, I ran a digital film laboratory delivering post-production for
+        <span class="text-[var(--color-text)] font-medium">Netflix, Amazon, Lionsgate</span> — including the
+        <span class="text-[var(--color-text)] font-medium">Oscar-nominated "Winter on Fire"</span>.
+        I managed multi-terabyte data pipelines, maintained Linux/SAN infrastructure with
+        <span class="text-[var(--color-accent-2)] font-medium">0% downtime</span>, and led teams of 10+ under extreme deadlines.
+      </p>
+      <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+        That zero-fault tolerance mindset now drives my backend engineering: Clean Architecture,
+        reliable gRPC services, and systems that simply don't fail.
+      </p>
+    </BentoCard>
+    <!-- Tech Stack tile -->
+    <BentoCard>
+      <div class="flex items-center gap-2 mb-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <span class="text-xs font-mono text-[var(--color-accent)]">tech stack</span>
+      </div>
+      <h3 class="font-bold text-[var(--color-text)] text-base mb-3">Core Arsenal</h3>
+      <div class="grid grid-cols-2 gap-2">
+        {[
+          { name: 'Go', icon: '🐹' },
+          { name: 'gRPC', icon: '⚡' },
+          { name: 'PostgreSQL', icon: '🐘' },
+          { name: 'Redis', icon: '🔴' },
+          { name: 'Docker', icon: '🐳' },
+          { name: 'GitHub Actions', icon: '⚙️' },
+        ].map(item => (
+          <div class="flex items-center gap-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-200">
+            <span class="text-base">{item.icon}</span>
+            <span class="font-mono text-xs">{item.name}</span>
+          </div>
+        ))}
+      </div>
+      <div class="mt-3 pt-3 border-t border-[rgba(255,255,255,0.05)]">
+        <p class="text-xs text-[var(--color-muted)] font-mono">Clean Architecture · Microservices · TDD</p>
+      </div>
+    </BentoCard>
+    <!-- Soft Skills tile -->
+    <BentoCard>
+      <div class="flex items-center gap-2 mb-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span class="text-xs font-mono text-[var(--color-accent)]">soft skills</span>
+      </div>
+      <h3 class="font-bold text-[var(--color-text)] text-base mb-3">Leadership DNA</h3>
+      <ul class="space-y-2">
+        {[
+          'Extreme ownership',
+          'Crisis management',
+          'Zero-fault tolerance',
+          'Cross-team leadership',
+          'Architectural thinking',
+        ].map(skill => (
+          <li class="flex items-center gap-2 text-sm text-[var(--color-muted)]">
+            <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] flex-shrink-0"></span>
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </BentoCard>
+    <!-- Location tile -->
+    <BentoCard>
+      <div class="flex items-center gap-2 mb-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span class="text-xs font-mono text-[var(--color-accent)]">location</span>
+      </div>
+      <div class="flex items-center gap-3 mt-1">
+        <span class="text-3xl">🇳🇴</span>
+        <div>
+          <p class="font-bold text-[var(--color-text)]">Nordreisa, Norway</p>
+          <p class="text-xs text-[var(--color-accent-2)] font-mono mt-0.5">✓ Open to remote worldwide</p>
+        </div>
+      </div>
+    </BentoCard>
+    <!-- Languages tile -->
+    <BentoCard>
+      <div class="flex items-center gap-2 mb-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span class="text-xs font-mono text-[var(--color-accent)]">languages</span>
+      </div>
+      <div class="space-y-2 mt-1">
+        {[
+          { lang: 'English', level: 'B2', flag: '🇬🇧', width: '70%' },
+          { lang: 'Ukrainian', level: 'C2', flag: '🇺🇦', width: '100%' },
+          { lang: 'Russian', level: 'C2', flag: '🇷🇺', width: '100%' },
+        ].map(l => (
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm text-[var(--color-muted)] flex items-center gap-1.5">
+                <span>{l.flag}</span> {l.lang}
+              </span>
+              <span class="text-xs font-mono text-[var(--color-accent)]">{l.level}</span>
+            </div>
+            <div class="h-1 rounded-full bg-[rgba(255,255,255,0.05)]">
+              <div class="h-1 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)]" style={`width: ${l.width}`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </BentoCard>
+  </div>
+</section>
+===
+---
+import { experience } from '../../data/experience';
+import TimelineItem from '../ui/TimelineItem.astro';
+---
+<section id="experience" class="py-24 px-6 md:px-12" style="background: linear-gradient(180deg, transparent 0%, rgba(15,22,36,0.5) 50%, transparent 100%);">
+  <div class="max-w-3xl mx-auto">
+    <!-- Section header -->
+    <div class="mb-12">
+      <p class="font-mono text-[var(--color-accent)] text-sm mb-2">03. experience</p>
+      <h2 class="section-title">Career Timeline</h2>
+      <p class="section-subtitle">A decade of technical leadership, now focused on Go engineering.</p>
+    </div>
+    <!-- Timeline -->
+    <div>
+      {experience.map((item, i) => (
+        <TimelineItem item={item} last={i === experience.length - 1} />
+      ))}
+    </div>
+  </div>
+</section>
+===
+---
+import type { Project } from '../../data/projects';
+import TechTag from './TechTag.astro';
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+<article class="card group flex flex-col p-6 gap-4 relative overflow-hidden">
+  {project.highlight && (
+    <div class="absolute top-4 right-4">
+      <span class="text-xs font-mono px-2 py-1 rounded-full bg-[rgba(0,173,216,0.15)] text-[var(--color-accent)] border border-[rgba(0,173,216,0.3)]">
+        Featured
+      </span>
+    </div>
+  )}
+  <!-- Icon + Title -->
+  <div class="flex items-start gap-3">
+    <div class="w-10 h-10 rounded-lg bg-[rgba(0,173,216,0.1)] border border-[rgba(0,173,216,0.2)] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[rgba(0,173,216,0.2)] group-hover:border-[rgba(0,173,216,0.4)]">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent)]">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    </div>
+    <div>
+      <h3 class="font-bold text-[var(--color-text)] text-lg leading-tight group-hover:text-white transition-colors duration-300">
+        {project.title}
+      </h3>
+      <p class="text-[var(--color-accent)] text-sm font-mono mt-0.5">{project.subtitle}</p>
+    </div>
+  </div>
+  <!-- Description -->
+  <p class="text-[var(--color-muted)] text-sm leading-relaxed flex-1" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+    {project.description}
+  </p>
+  <!-- Stack tags -->
+  <div class="flex flex-wrap gap-1.5">
+    {project.stack.map(tag => <TechTag tag={tag} />)}
+  </div>
+  <!-- GitHub link -->
+  <div class="flex items-center justify-between pt-2 border-t border-[rgba(255,255,255,0.05)]">
+    <a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-2 text-[var(--color-muted)] text-sm hover:text-[var(--color-accent)] transition-colors duration-300"
+      aria-label={`View ${project.title} on GitHub`}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 transform">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  </div>
+</article>

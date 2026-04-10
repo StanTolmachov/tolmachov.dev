@@ -17,7 +17,7 @@
       ST<span class="text-[var(--color-muted)]">.dev</span>
     </a>
     <div class="hidden md:flex items-center gap-8">
-      {['About', 'Experience', 'Projects', 'Contact'].map(item => (
+      {['About', 'Projects', 'Experience', 'Contact'].map(item => (
         <a
           href={`#${item.toLowerCase()}`}
           class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-300 relative group"
@@ -33,6 +33,11 @@
     >
       Hire me
     </a>
+    <!-- Mobile nav links -->
+    <div class="flex md:hidden items-center gap-4">
+      <a href="#projects" class="text-xs font-mono text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-300">Projects</a>
+      <a href="#contact" class="text-xs font-mono text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-300">Contact</a>
+    </div>
   </nav>
 
   <!-- Main content -->
@@ -45,13 +50,13 @@
     </div>
 
     <!-- Name -->
-    <h1 class="animate-fade-in-up delay-200 text-5xl md:text-7xl font-extrabold tracking-tight leading-none mb-4">
+    <h1 class="animate-fade-in-up delay-200 text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-none mb-4">
       <span class="text-[var(--color-text)]">Stanislav</span><br />
       <span class="gradient-text">Tolmachov</span>
     </h1>
 
     <!-- Subtitle -->
-    <p class="animate-fade-in-up delay-300 font-mono text-[var(--color-accent)] text-lg md:text-xl mb-3">
+    <p class="animate-fade-in-up delay-300 font-mono text-[var(--color-accent)] text-base md:text-xl mb-3">
       Backend Go Engineer <span class="text-[var(--color-muted)]">|</span> Technical Leader
     </p>
 
@@ -65,7 +70,7 @@
     </p>
 
     <!-- Hook text -->
-    <p class="animate-fade-in-up delay-500 text-[var(--color-muted)] text-base md:text-lg max-w-2xl leading-relaxed mb-10">
+    <p class="animate-fade-in-up delay-500 text-[var(--color-muted)] text-sm md:text-lg max-w-2xl leading-relaxed mb-10">
       Building <span class="text-[var(--color-text)]">robust, scalable Go systems</span>, backed by a decade of
       <span class="text-[var(--color-text)]">zero-fault tolerance leadership</span> in the global film industry.
     </p>
