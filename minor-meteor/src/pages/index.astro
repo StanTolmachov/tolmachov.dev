@@ -8,11 +8,11 @@ import Footer from '../components/layout/Footer.astro';
 ---
 
 <BaseLayout>
-  <main>
+  <main class="relative" style="z-index: 1;">
     <Hero />
     <About />
     <Projects />
     <Experience />
   </main>
-  <Footer />
+  <div class="relative" style="z-index: 1;"><Footer /></div>
 </BaseLayout>

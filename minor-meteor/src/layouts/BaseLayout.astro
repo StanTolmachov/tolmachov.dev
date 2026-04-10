@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import AnimatedBackground from '../components/ui/AnimatedBackground.astro';
 
 interface Props {
   title?: string;
@@ -63,6 +64,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#0a0f1a" />
   </head>
   <body>
+    <AnimatedBackground />
     <slot />
   </body>
 </html>
