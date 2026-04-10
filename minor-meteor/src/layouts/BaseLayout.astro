@@ -26,33 +26,44 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- Primary Meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Stanislav Tolmachov" />
-    <meta name="keywords" content="Stanislav Tolmachov, Go Engineer, Golang Backend Developer, gRPC, PostgreSQL, Redis, Docker, Clean Architecture, Microservices, Norway, Remote Backend Engineer, Technical Leader" />
-    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="Stanislav Tolmachov, Go Engineer, Golang Backend Developer, gRPC, PostgreSQL, Redis, Docker, Clean Architecture, Microservices, Norway, Remote Backend Engineer, Technical Leader, Backend Go Developer, Go microservices, REST API, grpc golang" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- OpenGraph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Stanislav Tolmachov — Backend Go Engineer" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="tolmachov.dev" />
+    <meta property="profile:first_name" content="Stanislav" />
+    <meta property="profile:last_name" content="Tolmachov" />
+    <meta property="profile:username" content="StanTolmachov" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Stanislav Tolmachov — Backend Go Engineer" />
 
     <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -62,6 +73,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Theme color -->
     <meta name="theme-color" content="#0a0f1a" />
+    <meta name="color-scheme" content="dark" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -69,6 +81,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Stanislav Tolmachov",
+      "givenName": "Stanislav",
+      "familyName": "Tolmachov",
       "jobTitle": "Backend Go Engineer",
       "url": "https://tolmachov.dev",
       "email": "stan@tolmachov.dev",
@@ -82,10 +96,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       ],
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "NO"
+        "addressCountry": "NO",
+        "addressRegion": "Troms"
       },
-      "knowsAbout": ["Go", "Golang", "gRPC", "PostgreSQL", "Redis", "Docker", "Clean Architecture", "Microservices", "Backend Development"],
-      "knowsLanguage": ["en", "uk", "ru"]
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Backend Go Engineer",
+        "occupationLocation": {
+          "@type": "Country",
+          "name": "Norway"
+        },
+        "skills": "Go, Golang, gRPC, PostgreSQL, Redis, Docker, Clean Architecture, Microservices, REST API, GitHub Actions, Nginx"
+      },
+      "knowsAbout": [
+        "Go", "Golang", "gRPC", "Protocol Buffers", "PostgreSQL", "Redis", "Docker",
+        "Clean Architecture", "Microservices", "REST API", "Backend Development",
+        "CI/CD", "GitHub Actions", "Nginx", "Linux", "JWT", "TDD"
+      ],
+      "knowsLanguage": [
+        {"@type": "Language", "name": "English", "alternateName": "en"},
+        {"@type": "Language", "name": "Ukrainian", "alternateName": "uk"},
+        {"@type": "Language", "name": "Russian", "alternateName": "ru"}
+      ]
     }
     </script>
   </head>
