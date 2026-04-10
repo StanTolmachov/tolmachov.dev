@@ -7,108 +7,104 @@
   const canvas = document.getElementById('bg-canvas') as HTMLCanvasElement;
   const ctx = canvas.getContext('2d', { alpha: true })!;
 
-  let width = 0;
-  let height = 0;
-  let animId: number;
+  const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) || window.innerWidth < 768;
 
-  interface Particle {
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    radius: number;
-    opacity: number;
-  }
+  // On mobile — skip canvas entirely, use CSS gradient background
+  if (isMobile) {
+    canvas.style.display = 'none';
+  } else {
+    let width = 0;
+    let height = 0;
+    let animId: number;
 
-  const isMobile = () => window.innerWidth < 768;
-
-  function getParticleCount() {
-    return isMobile() ? 25 : 70;
-  }
-
-  function getConnectionDist() {
-    return isMobile() ? 90 : 160;
-  }
-
-  const ACCENT = '0, 173, 216';
-
-  let particles: Particle[] = [];
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-
-  function createParticles() {
-    particles = [];
-    const count = getParticleCount();
-    const speed = isMobile() ? 0.15 : 0.35;
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * speed,
-        vy: (Math.random() - 0.5) * speed,
-        radius: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.5 + 0.2,
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-
-    const connDist = getConnectionDist();
-
-    for (const p of particles) {
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      if (p.y > height) p.y = 0;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${ACCENT}, ${p.opacity})`;
-      ctx.fill();
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      opacity: number;
     }
 
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const a = particles[i];
-        const b = particles[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+    const ACCENT = '0, 173, 216';
+    const PARTICLE_COUNT = 70;
+    const CONNECTION_DIST = 160;
+    const SPEED = 0.35;
 
-        if (dist < connDist) {
-          const alpha = (1 - dist / connDist) * 0.18;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(${ACCENT}, ${alpha})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
+    let particles: Particle[] = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * SPEED,
+          vy: (Math.random() - 0.5) * SPEED,
+          radius: Math.random() * 1.5 + 0.5,
+          opacity: Math.random() * 0.5 + 0.2,
+        });
       }
     }
 
-    animId = requestAnimationFrame(draw);
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ACCENT}, ${p.opacity})`;
+        ctx.fill();
+      }
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i];
+          const b = particles[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < CONNECTION_DIST) {
+            const alpha = (1 - dist / CONNECTION_DIST) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(${ACCENT}, ${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+
+      animId = requestAnimationFrame(draw);
+    }
+
+    function init() {
+      resize();
+      createParticles();
+      cancelAnimationFrame(animId);
+      draw();
+    }
+
+    window.addEventListener('resize', () => {
+      resize();
+      createParticles();
+    }, { passive: true });
+
+    init();
   }
-
-  function init() {
-    resize();
-    createParticles();
-    cancelAnimationFrame(animId);
-    draw();
-  }
-
-  window.addEventListener('resize', () => {
-    resize();
-    createParticles();
-  }, { passive: true });
-
-  init();
 </script>
