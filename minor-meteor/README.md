@@ -1,43 +1,80 @@
-# Astro Starter Kit: Minimal
+# tolmachov.dev
 
-```sh
-npm create astro@latest -- --template minimal
+Personal portfolio website for **Stanislav Tolmachov** — Backend Go Engineer & Technical Leader.
+
+🌐 **Live:** [https://tolmachov.dev](https://tolmachov.dev)
+
+---
+
+## Stack
+
+- **[Astro 6](https://astro.build/)** — static site generator
+- **[Tailwind CSS v4](https://tailwindcss.com/)** — utility-first CSS via `@tailwindcss/vite`
+- **TypeScript** — typed data layer
+- **Canvas API** — animated neural-network background
+- **GitHub Actions** — automated CI/CD deploy to GitHub Pages
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── layout/
+│   │   └── Footer.astro        # Contact section + social links
+│   ├── sections/
+│   │   ├── Hero.astro           # Landing screen with CTA
+│   │   ├── About.astro          # Bento grid — skills & bio
+│   │   ├── Projects.astro       # Featured engineering projects
+│   │   └── Experience.astro     # Career timeline
+│   └── ui/
+│       ├── ProjectCard.astro    # Project card with hover effects
+│       └── AnimatedBackground.astro  # Canvas particle animation
+├── data/
+│   ├── projects.ts              # Typed project data
+│   └── experience.ts            # Typed experience data
+├── layouts/
+│   └── BaseLayout.astro         # HTML shell + SEO meta tags
+├── pages/
+│   └── index.astro              # Page composition
+└── styles/
+    └── global.css               # Design system: CSS variables, base styles
+public/
+├── CNAME                        # Custom domain: tolmachov.dev
+├── robots.txt
+└── favicon.svg
+.github/
+└── workflows/
+    └── deploy.yml               # GitHub Actions → GitHub Pages
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Local Development
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
+npm run dev       # http://localhost:4321
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Build
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run build     # Output: dist/
+npm run preview   # Preview built site locally
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deploy
 
-## 🧞 Commands
+Deployment is fully automated via GitHub Actions on every push to `main`.
 
-All commands are run from the root of the project, from a terminal:
+To set up:
+1. Push this repo to GitHub
+2. Go to **Settings → Pages → Source: GitHub Actions**
+3. Every push to `main` triggers build and deploy automatically
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Custom domain is configured via `public/CNAME` → `tolmachov.dev`.
 
-## 👀 Want to learn more?
+## Contact
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Email:** [stan@tolmachov.dev](mailto:stan@tolmachov.dev)
+- **GitHub:** [github.com/StanTolmachov](https://github.com/StanTolmachov)
+- **LinkedIn:** [linkedin.com/in/stan-tolmachov](https://www.linkedin.com/in/stan-tolmachov/)
+- **Telegram:** [t.me/StasTolmachov](https://t.me/StasTolmachov)
