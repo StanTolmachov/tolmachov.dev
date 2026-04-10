@@ -29,7 +29,7 @@ export const experience: ExperienceItem[] = [
     location: "Ukraine",
     highlights: [
       "Founded and scaled a leading digital film laboratory with global studio partnerships (Company 3, Lionsgate)",
-      "Delivered 10 feature films and 20+ commercials/music videos for Netflix, Amazon, theatrical USA distribution",
+      "Delivered 20+ feature films and numerous commercials/music videos for theatrical distribution in Ukraine, Europe, and the USA",
       "Designed and implemented post-production hardware workflows and software procedures from scratch",
       "Maintained high-performance Linux/Mac/Windows servers and SAN storage — 0% downtime during multi-TB transfers",
       "Managed massive data pipelines via HDD, FTP, Aspera, Google Drive, QNAP — strictly adhering to CDSA protocols",
