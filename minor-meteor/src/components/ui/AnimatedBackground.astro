@@ -1,7 +1,7 @@
 ---
 ---
 
-<canvas id="bg-canvas" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index: 0; will-change: transform;"></canvas>
+<canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
 
 <script>
   const canvas = document.getElementById('bg-canvas') as HTMLCanvasElement;
@@ -10,8 +10,6 @@
   let width = 0;
   let height = 0;
   let animId: number;
-  let isScrolling = false;
-  let scrollTimer: ReturnType<typeof setTimeout>;
 
   interface Particle {
     x: number;
@@ -24,16 +22,15 @@
 
   const isMobile = () => window.innerWidth < 768;
 
-  // Fewer particles on mobile for performance
   function getParticleCount() {
-    return isMobile() ? 30 : 70;
+    return isMobile() ? 25 : 70;
   }
 
   function getConnectionDist() {
-    return isMobile() ? 100 : 160;
+    return isMobile() ? 90 : 160;
   }
 
-  const ACCENT = '0, 173, 216'; // #00ADD8
+  const ACCENT = '0, 173, 216';
 
   let particles: Particle[] = [];
 
@@ -45,12 +42,13 @@
   function createParticles() {
     particles = [];
     const count = getParticleCount();
+    const speed = isMobile() ? 0.15 : 0.35;
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * (isMobile() ? 0.2 : 0.35),
-        vy: (Math.random() - 0.5) * (isMobile() ? 0.2 : 0.35),
+        vx: (Math.random() - 0.5) * speed,
+        vy: (Math.random() - 0.5) * speed,
         radius: Math.random() * 1.5 + 0.5,
         opacity: Math.random() * 0.5 + 0.2,
       });
@@ -58,17 +56,10 @@
   }
 
   function draw() {
-    // On mobile during scroll — skip frames to save GPU
-    if (isScrolling && isMobile()) {
-      animId = requestAnimationFrame(draw);
-      return;
-    }
-
     ctx.clearRect(0, 0, width, height);
 
     const connDist = getConnectionDist();
 
-    // Update & draw particles
     for (const p of particles) {
       p.x += p.vx;
       p.y += p.vy;
@@ -84,7 +75,6 @@
       ctx.fill();
     }
 
-    // Draw connections
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const a = particles[i];
@@ -118,17 +108,6 @@
   window.addEventListener('resize', () => {
     resize();
     createParticles();
-  }, { passive: true });
-
-  // Pause animation during scroll on mobile to prevent jank
-  window.addEventListener('scroll', () => {
-    if (isMobile()) {
-      isScrolling = true;
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        isScrolling = false;
-      }, 150);
-    }
   }, { passive: true });
 
   init();
