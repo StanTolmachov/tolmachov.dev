@@ -7,7 +7,7 @@ import BentoCard from '../ui/BentoCard.astro';
   <div class="mb-12">
     <p class="font-mono text-[var(--color-accent)] text-sm mb-2">01. about</p>
     <h2 class="section-title">The Engineer Behind the Code</h2>
-    <p class="section-subtitle max-w-xl">From managing Oscar-nominated film pipelines to building Go microservices.</p>
+    <p class="section-subtitle max-w-xl">Thirteen years of technical delivery in film, now writing Go backends.</p>
   </div>
 
   <!-- Bento Grid -->
@@ -22,17 +22,19 @@ import BentoCard from '../ui/BentoCard.astro';
         </svg>
         <span class="text-xs font-mono text-[var(--color-accent)]">story</span>
       </div>
-      <h3 class="font-bold text-[var(--color-text)] text-lg">From Film Labs to Go Services</h3>
+      <h3 class="font-bold text-[var(--color-text)] text-lg">From Film Post-Production to Go</h3>
       <p class="text-[var(--color-muted)] text-sm leading-relaxed">
-        For over a decade, I ran a digital film laboratory delivering post-production for
-        <span class="text-[var(--color-text)] font-medium">Netflix, Amazon, Lionsgate</span> — including the
-        <span class="text-[var(--color-text)] font-medium">Oscar-nominated "Winter on Fire"</span>.
-        I managed multi-terabyte data pipelines, maintained Linux/SAN infrastructure with
-        <span class="text-[var(--color-accent-2)] font-medium">0% downtime</span>, and led teams of 10+ under extreme deadlines.
+        I spent 13 years in film post-production, the last eight running my own studio in Kyiv delivering to
+        <span class="text-[var(--color-text)] font-medium">Netflix, Amazon, Lionsgate and Company 3</span> — including the
+        <span class="text-[var(--color-text)] font-medium">Oscar-nominated documentary "Winter on Fire"</span>.
+        Designing delivery workflows, running Linux and macOS systems and SAN/NAS storage, and shipping on fixed release dates.
       </p>
       <p class="text-[var(--color-muted)] text-sm leading-relaxed">
-        That zero-fault tolerance mindset now drives my backend engineering: Clean Architecture,
-        reliable gRPC services, and systems that simply don't fail.
+        I have been writing Go since 2022. Over the past months I designed and shipped
+        <span class="text-[var(--color-text)] font-medium">Synaply</span> — a language-learning platform live at
+        <a href="https://synaply.me" target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:text-white transition-colors duration-300">synaply.me</a>,
+        built solo and <span class="text-[var(--color-accent-2)] font-medium">piloted with ~45 students</span> in a Norwegian secondary school.
+        Now looking for a backend role in a team with code review.
       </p>
     </BentoCard>
 
@@ -45,15 +47,15 @@ import BentoCard from '../ui/BentoCard.astro';
         </svg>
         <span class="text-xs font-mono text-[var(--color-accent)]">tech stack</span>
       </div>
-      <h3 class="font-bold text-[var(--color-text)] text-base mb-3">Core Arsenal</h3>
+      <h3 class="font-bold text-[var(--color-text)] text-base mb-3">Daily Tools</h3>
       <div class="grid grid-cols-2 gap-2">
         {[
           { name: 'Go', icon: '🐹' },
-          { name: 'gRPC', icon: '⚡' },
           { name: 'PostgreSQL', icon: '🐘' },
           { name: 'Redis', icon: '🔴' },
           { name: 'Docker', icon: '🐳' },
           { name: 'GitHub Actions', icon: '⚙️' },
+          { name: 'Claude API', icon: '🤖' },
         ].map(item => (
           <div class="flex items-center gap-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-200">
             <span class="text-base">{item.icon}</span>
@@ -62,26 +64,26 @@ import BentoCard from '../ui/BentoCard.astro';
         ))}
       </div>
       <div class="mt-3 pt-3 border-t border-[rgba(255,255,255,0.05)]">
-        <p class="text-xs text-[var(--color-muted)] font-mono">Clean Architecture · Microservices · TDD</p>
+        <p class="text-xs text-[var(--color-muted)] font-mono">REST APIs on chi · layered architecture · integration tests on real PostgreSQL</p>
       </div>
     </BentoCard>
 
-    <!-- Soft Skills tile -->
+    <!-- What I bring tile -->
     <BentoCard>
       <div class="flex items-center gap-2 mb-1">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
         </svg>
-        <span class="text-xs font-mono text-[var(--color-accent)]">soft skills</span>
+        <span class="text-xs font-mono text-[var(--color-accent)]">what i bring</span>
       </div>
-      <h3 class="font-bold text-[var(--color-text)] text-base mb-3">Leadership DNA</h3>
+      <h3 class="font-bold text-[var(--color-text)] text-base mb-3">Beyond the Code</h3>
       <ul class="space-y-2">
         {[
-          'Extreme ownership',
-          'Crisis management',
-          'Zero-fault tolerance',
-          'Cross-team leadership',
-          'Architectural thinking',
+          'Ownership from idea to production',
+          'Delivery under fixed deadlines',
+          'Linux, storage and infra literacy',
+          'Mentoring and running workshops',
+          'Work with international clients',
         ].map(skill => (
           <li class="flex items-center gap-2 text-sm text-[var(--color-muted)]">
             <span class="w-1 h-1 rounded-full bg-[var(--color-accent)] flex-shrink-0"></span>
@@ -104,7 +106,8 @@ import BentoCard from '../ui/BentoCard.astro';
         <span class="text-3xl">🇳🇴</span>
         <div>
           <p class="font-bold text-[var(--color-text)]">Norway</p>
-          <p class="text-xs text-[var(--color-accent-2)] font-mono mt-0.5">✓ Open to remote worldwide</p>
+          <p class="text-xs text-[var(--color-accent-2)] font-mono mt-0.5">✓ Full right to work</p>
+          <p class="text-xs text-[var(--color-accent-2)] font-mono mt-0.5">✓ Remote or relocation</p>
         </div>
       </div>
     </BentoCard>
@@ -121,9 +124,9 @@ import BentoCard from '../ui/BentoCard.astro';
       </div>
       <div class="space-y-2 mt-1">
         {[
-          { lang: 'English', level: 'B2', flag: '🇬🇧', width: '70%' },
-          { lang: 'Ukrainian', level: 'C2', flag: '🇺🇦', width: '100%' },
-          { lang: 'Russian', level: 'C2', flag: '🇷🇺', width: '100%' },
+          { lang: 'English', level: 'B1', flag: '🇬🇧', width: '55%' },
+          { lang: 'Ukrainian', level: 'Native', flag: '🇺🇦', width: '100%' },
+          { lang: 'Russian', level: 'Native', flag: '🇷🇺', width: '100%' },
         ].map(l => (
           <div>
             <div class="flex items-center justify-between mb-1">
@@ -138,6 +141,23 @@ import BentoCard from '../ui/BentoCard.astro';
           </div>
         ))}
       </div>
+    </BentoCard>
+
+    <!-- Now tile — wide -->
+    <BentoCard class="lg:col-span-3">
+      <div class="flex items-center gap-2 mb-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span class="text-xs font-mono text-[var(--color-accent)]">now</span>
+      </div>
+      <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+        Preparing the <span class="text-[var(--color-text)]">second school pilot of Synaply for September 2026</span>,
+        finishing an advanced Go mentorship program, and reading job posts —
+        <a href="mailto:stan@tolmachov.dev" class="text-[var(--color-accent)] hover:text-white transition-colors duration-300">say hello</a>
+        if you have a backend Go team that reviews code.
+      </p>
     </BentoCard>
 
   </div>

@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = 'Stanislav Tolmachov — Backend Go Engineer',
-  description = 'Backend Go Engineer & Technical Leader. Building robust, scalable Go systems backed by a decade of zero-fault tolerance leadership in the global film industry.',
+  title = 'Stanislav Tolmachov — Go Backend Developer',
+  description = 'Go backend developer based in Norway. I build production services in Go — REST APIs on chi, PostgreSQL, Redis, Docker and CI. Creator of Synaply, live at synaply.me.',
   ogImage = 'https://tolmachov.dev/opengraph-image.png',
 } = Astro.props;
 
@@ -32,7 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Stanislav Tolmachov" />
-    <meta name="keywords" content="Stanislav Tolmachov, Go Engineer, Golang Backend Developer, gRPC, PostgreSQL, Redis, Docker, Clean Architecture, Microservices, Norway, Remote Backend Engineer, Technical Leader, Backend Go Developer, Go microservices, REST API, grpc golang" />
+    <meta name="keywords" content="Stanislav Tolmachov, Go developer, Golang backend developer, Go backend developer Norway, Go REST API, chi router, PostgreSQL, Redis, Docker, GitHub Actions, remote backend developer, junior Go developer, Synaply" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="canonical" href={canonicalURL} />
@@ -47,7 +47,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Stanislav Tolmachov — Backend Go Engineer" />
+    <meta property="og:image:alt" content="Stanislav Tolmachov — Go Backend Developer" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="tolmachov.dev" />
     <meta property="profile:first_name" content="Stanislav" />
@@ -59,7 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content="Stanislav Tolmachov — Backend Go Engineer" />
+    <meta name="twitter:image:alt" content="Stanislav Tolmachov — Go Backend Developer" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -83,35 +83,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "name": "Stanislav Tolmachov",
       "givenName": "Stanislav",
       "familyName": "Tolmachov",
-      "jobTitle": "Backend Go Engineer",
+      "jobTitle": "Go Backend Developer",
       "url": "https://tolmachov.dev",
       "email": "stan@tolmachov.dev",
       "telephone": "+4792043450",
       "image": "https://tolmachov.dev/opengraph-image.png",
-      "description": "Backend Go Engineer & Technical Leader. Building robust, scalable Go systems backed by a decade of zero-fault tolerance leadership in the global film industry.",
+      "description": "Go backend developer based in Norway. Builds production services in Go — REST APIs on chi, PostgreSQL, Redis, Docker and CI. Creator of Synaply, live at synaply.me.",
       "sameAs": [
         "https://github.com/StanTolmachov",
         "https://www.linkedin.com/in/stan-tolmachov/",
-        "https://t.me/StasTolmachov"
+        "https://t.me/StasTolmachov",
+        "https://synaply.me"
       ],
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "NO",
-        "addressRegion": "Troms"
+        "addressCountry": "NO"
       },
       "hasOccupation": {
         "@type": "Occupation",
-        "name": "Backend Go Engineer",
+        "name": "Go Backend Developer",
         "occupationLocation": {
           "@type": "Country",
           "name": "Norway"
         },
-        "skills": "Go, Golang, gRPC, PostgreSQL, Redis, Docker, Clean Architecture, Microservices, REST API, GitHub Actions, Nginx"
+        "skills": "Go, Golang, REST API, chi, PostgreSQL, pgx, Redis, Docker, GitHub Actions, Caddy, Linux, JWT, Prometheus, Grafana"
       },
       "knowsAbout": [
-        "Go", "Golang", "gRPC", "Protocol Buffers", "PostgreSQL", "Redis", "Docker",
-        "Clean Architecture", "Microservices", "REST API", "Backend Development",
-        "CI/CD", "GitHub Actions", "Nginx", "Linux", "JWT", "TDD"
+        "Go", "Golang", "REST API", "chi", "PostgreSQL", "pgx", "Redis", "Docker",
+        "Backend Development", "CI/CD", "GitHub Actions", "Caddy", "Linux", "JWT",
+        "Prometheus", "Grafana", "Integration testing", "Anthropic Claude API"
       ],
       "knowsLanguage": [
         {"@type": "Language", "name": "English", "alternateName": "en"},
