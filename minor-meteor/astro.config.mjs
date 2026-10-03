@@ -4,7 +4,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://tolmachov.dev',
-  integrations: [sitemap()],
+  integrations: [sitemap({ lastmod: new Date() })],
+  build: {
+    inlineStylesheets: 'always',
+  },
   output: 'static',
   vite: {
     plugins: [tailwindcss()],

@@ -9,12 +9,124 @@ interface Props {
 }
 
 const {
-  title = 'Stanislav Tolmachov — Go Backend Developer',
+  title = 'Stanislav Tolmachov — Go (Golang) Backend Developer in Norway',
   description = 'Go backend developer based in Norway. I build production services in Go — REST APIs on chi, PostgreSQL, Redis, Docker and CI. Creator of Synaply, live at synaply.me.',
   ogImage = 'https://tolmachov.dev/opengraph-image.png',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const buildDate = new Date().toISOString().slice(0, 10);
+
+const person = {
+  '@type': 'Person',
+  '@id': 'https://tolmachov.dev/#person',
+  name: 'Stanislav Tolmachov',
+  alternateName: ['Stan Tolmachov', 'Stas Tolmachov'],
+  givenName: "Stanislav",
+  familyName: "Tolmachov",
+  jobTitle: "Go Backend Developer",
+  url: "https://tolmachov.dev",
+  email: "stan@tolmachov.dev",
+  telephone: "+4792043450",
+  image: "https://tolmachov.dev/opengraph-image.png",
+  description: "Go backend developer based in Norway. Builds production services in Go — REST APIs on chi, PostgreSQL, Redis, Docker and CI. Creator of Synaply, live at synaply.me.",
+  sameAs: [
+    "https://github.com/StanTolmachov",
+    "https://www.linkedin.com/in/stan-tolmachov/",
+    "https://t.me/StasTolmachov",
+    "https://synaply.me"
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "NO"
+  },
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Go Backend Developer",
+    occupationLocation: {
+      "@type": "Country",
+      name: "Norway"
+    },
+    skills: "Go, Golang, REST API, chi, PostgreSQL, pgx, Redis, Docker, GitHub Actions, Caddy, Linux, JWT, Prometheus, Grafana"
+  },
+  knowsAbout: [
+    "Go",
+    "Golang",
+    "REST API",
+    "chi",
+    "PostgreSQL",
+    "pgx",
+    "Redis",
+    "Docker",
+    "Backend Development",
+    "CI/CD",
+    "GitHub Actions",
+    "Caddy",
+    "Linux",
+    "JWT",
+    "Prometheus",
+    "Grafana",
+    "Integration testing",
+    "Anthropic Claude API"
+  ],
+  knowsLanguage: [
+    {
+      "@type": "Language",
+      name: "English",
+      alternateName: "en"
+    },
+    {
+      "@type": "Language",
+      name: "Ukrainian",
+      alternateName: "uk"
+    },
+    {
+      "@type": "Language",
+      name: "Russian",
+      alternateName: "ru"
+    }
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Zaporizhzhia Polytechnic National University"
+  }
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfilePage',
+      '@id': 'https://tolmachov.dev/#profilepage',
+      url: 'https://tolmachov.dev/',
+      name: title,
+      description,
+      inLanguage: 'en',
+      dateModified: buildDate,
+      mainEntity: { '@id': 'https://tolmachov.dev/#person' },
+      isPartOf: { '@id': 'https://tolmachov.dev/#website' },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://tolmachov.dev/#website',
+      url: 'https://tolmachov.dev/',
+      name: 'tolmachov.dev',
+      inLanguage: 'en',
+      publisher: { '@id': 'https://tolmachov.dev/#person' },
+    },
+    person,
+    {
+      '@type': 'WebApplication',
+      '@id': 'https://synaply.me/#app',
+      name: 'Synaply',
+      url: 'https://synaply.me',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Web',
+      description: 'AI-powered language learning platform built in Go, piloted in a Norwegian secondary school.',
+      creator: { '@id': 'https://tolmachov.dev/#person' },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -61,65 +173,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content="Stanislav Tolmachov — Go Backend Developer" />
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
 
     <!-- Theme color -->
     <meta name="theme-color" content="#0a0f1a" />
     <meta name="color-scheme" content="dark" />
 
     <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Stanislav Tolmachov",
-      "givenName": "Stanislav",
-      "familyName": "Tolmachov",
-      "jobTitle": "Go Backend Developer",
-      "url": "https://tolmachov.dev",
-      "email": "stan@tolmachov.dev",
-      "telephone": "+4792043450",
-      "image": "https://tolmachov.dev/opengraph-image.png",
-      "description": "Go backend developer based in Norway. Builds production services in Go — REST APIs on chi, PostgreSQL, Redis, Docker and CI. Creator of Synaply, live at synaply.me.",
-      "sameAs": [
-        "https://github.com/StanTolmachov",
-        "https://www.linkedin.com/in/stan-tolmachov/",
-        "https://t.me/StasTolmachov",
-        "https://synaply.me"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "NO"
-      },
-      "hasOccupation": {
-        "@type": "Occupation",
-        "name": "Go Backend Developer",
-        "occupationLocation": {
-          "@type": "Country",
-          "name": "Norway"
-        },
-        "skills": "Go, Golang, REST API, chi, PostgreSQL, pgx, Redis, Docker, GitHub Actions, Caddy, Linux, JWT, Prometheus, Grafana"
-      },
-      "knowsAbout": [
-        "Go", "Golang", "REST API", "chi", "PostgreSQL", "pgx", "Redis", "Docker",
-        "Backend Development", "CI/CD", "GitHub Actions", "Caddy", "Linux", "JWT",
-        "Prometheus", "Grafana", "Integration testing", "Anthropic Claude API"
-      ],
-      "knowsLanguage": [
-        {"@type": "Language", "name": "English", "alternateName": "en"},
-        {"@type": "Language", "name": "Ukrainian", "alternateName": "uk"},
-        {"@type": "Language", "name": "Russian", "alternateName": "ru"}
-      ]
-    }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <AnimatedBackground />
