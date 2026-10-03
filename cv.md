@@ -9,7 +9,7 @@ Norway · Open to remote and relocation · Full right to work in Norway
 
 ## Summary
 
-Backend developer working with Go since 2022. Over the past four months I designed and shipped
+Backend developer working with Go since 2022. Since April 2026 I have designed and shipped
 **Synaply**, a production language-learning platform running at synaply.me — REST API, background
 worker, PostgreSQL and Redis, deployed in Docker behind TLS with a full CI pipeline. It is being
 piloted in a Norwegian secondary school. Before software
@@ -37,9 +37,9 @@ Amazon and Lionsgate. Looking for a backend role in a team with code review.
 *Go · PostgreSQL · Redis · Docker · Claude API* — synaply.me (private repository — walkthrough on request)
 
 Solo-built production service: REST API, background worker, PostgreSQL storage and Redis session
-state, deployed behind Caddy with automatic TLS. 300+ commits since April 2026. **Piloted with two
+state, deployed behind Caddy with automatic TLS. 330+ commits since April 2026. **Piloted with two
 classes (~45 students) at a Norwegian secondary school (April–May 2026); a second pilot with the
-current version starts September 2026.**
+current version running since September 2026.**
 
 - Built the authentication layer from scratch — JWT access and refresh sessions, email verification,
   password reset, and role-based middleware on top of chi.
@@ -50,8 +50,8 @@ current version starts September 2026.**
   strict JSON schemas, plus DeepL for translation — producing explanations and phonetic transcriptions
   in each learner's own alphabet, since the pilot classes mix students from many countries and native
   languages.
-- Structured the service in a layered architecture (handler → service → repository) covering 200+ REST
-  endpoints documented with Swagger, on a PostgreSQL schema managed through 60+ versioned migrations;
+- Structured the service in a layered architecture (handler → service → repository) covering 237 REST
+  endpoints documented with Swagger, on a PostgreSQL schema managed through 64 versioned goose migrations;
   covered the repository layer with integration tests running against a real PostgreSQL instance in a container.
 - Set up the delivery pipeline: multi-stage Docker builds, GitHub Actions CI running build, vet,
   govulncheck, race-enabled unit tests and integration tests on ephemeral PostgreSQL/Redis containers, container releases to GHCR, and a Prometheus / Grafana / Loki
